@@ -1,215 +1,101 @@
-"""
-Exercise-1: Count unique elements
-Write a function "count_unique_elements(my_list: list) -> int" that takes a
-list of integers and returns the number of unique elements in the list.
-
-Example:
-count_unique_elements([1, 2, 3, 1, 2, 4, 5, 4]) -> 5
-"""
-
+# Exercise-1
 def count_unique_elements(my_list: list) -> int:
-    pass
+    return len(set(my_list))
 
-"""
-Exercise-2: Remove duplicates
-Write a function "remove_duplicates(my_list: list) -> list" that takes a list of integers and 
-removes all duplicates, returning the new list with unique elements in their original order.
 
-Example:
-remove_duplicates([1, 2, 3, 1, 2, 4, 5, 4]) -> [1, 2, 3, 4, 5]
-"""
-
+# Exercise-2
 def remove_duplicates(my_list: list) -> list:
-    pass
+    seen = set()
+    result = []
+    for num in my_list:
+        if num not in seen:
+            seen.add(num)
+            result.append(num)
+    return result
 
-"""
-Exercise-3: Reverse a list
-Write a function "reverse_list(my_list: list) -> list" that takes a list of integers and 
-returns a new list with the elements in reverse order.
 
-Example:
-reverse_list([1, 2, 3, 4, 5]) -> [5, 4, 3, 2, 1]
-"""
-
+# Exercise-3
 def reverse_list(my_list: list) -> list:
-    pass
+    return my_list[::-1]
 
-"""
-Exercise-4: Find the maximum value in a list
-Write a function "max_value(my_list: list) -> int" that takes a 
-list of integers and returns the maximum value in the list.
 
-Example:
-max_value([1, 2, 3, 4, 5]) -> 5
-"""
-
+# Exercise-4
 def max_value(my_list: list) -> int:
-    pass
+    return max(my_list)
 
-"""
-Exercise-5: Find the minimum value in a list
-Write a function "min_value(my_list: list) -> int" that takes a 
-list of integers and returns the minimum value in the list.
 
-Example:
-min_value([1, 2, 3, 4, 5]) -> 1
-"""
-
+# Exercise-5
 def min_value(my_list: list) -> int:
-    pass
+    return min(my_list)
 
-"""
-Exercise-6: Sum all values in a list
-Write a function "sum_values(my_list: list) -> int" that takes a 
-list of integers and returns the sum of all values in the list.
 
-Example:
-sum_values([1, 2, 3, 4, 5]) -> 15
-"""
-
+# Exercise-6
 def sum_values(my_list: list) -> int:
-    pass
+    return sum(my_list)
 
-"""
-Exercise-7: Find the average of a list
-Write a function "average(my_list: list) -> float" that takes a 
-list of integers and returns the average value of the list.
 
-Example:
-average([1, 2, 3, 4, 5]) -> 3.0
-"""
-
+# Exercise-7
 def average(my_list: list) -> float:
-    pass
+    return sum(my_list) / len(my_list) if my_list else 0.0
 
-"""
-Exercise-8: Find the index of an element in a list
-Write a function "find_index(my_list: list, element: int) -> int" that takes a 
-list of integers and an element, and returns the index of the first occurrence of 
-the element in the list. If the element is not in the list, return -1.
 
-Example:
-find_index([1, 2, 3, 4, 5], 3) -> 2
-find_index([1, 2, 3, 4, 5], 6) -> -1
-"""
-
+# Exercise-8
 def find_index(my_list: list, element: int) -> int:
-    pass
+    for i, val in enumerate(my_list):
+        if val == element:
+            return i
+    return -1
 
-"""
-Exercise-9: Check if a list is sorted
-Write a function "is_sorted(my_list: list) -> bool" that takes a list
-of integers and returns True if the list is sorted in non-descending 
-order (i.e., each element is greater than or equal to the previous element), 
-False otherwise.
 
-Example:
-is_sorted([1, 2, 3, 4, 5]) -> True
-is_sorted([1, 3, 2, 4, 5]) -> False
-"""
-
+# Exercise-9
 def is_sorted(my_list: list) -> bool:
-    pass
+    return all(my_list[i] <= my_list[i+1] for i in range(len(my_list)-1))
 
-"""
-Exercise-10: Count the frequency of an element in a list
-Write a function "count_frequency(my_list: list, element: int) -> int" that 
-takes a list of integers and an element, and returns the number of 
-times the element appears in the list.
 
-Example:
-count_frequency([1, 2, 3, 4, 5, 1, 2, 3], 3) -> 2
-"""
-
+# Exercise-10
 def count_frequency(my_list: list, element: int) -> int:
-    pass
+    return my_list.count(element)
 
-"""
-Exercise-11: Find the mode of a list
-Write a function "find_mode(my_list: list) -> int" that takes a list of 
-integers and returns the mode (i.e., the value that appears most frequently) 
-of the list. If there are multiple modes, return any of them.
 
-Example:
-find_mode([1, 2, 3, 4, 5, 1, 2, 2, 3]) -> 2
-"""
-
+# Exercise-11
 def find_mode(my_list: list) -> int:
-    pass
+    freq = {}
+    for num in my_list:
+        freq[num] = freq.get(num, 0) + 1
+    return max(freq, key=freq.get)
 
-"""
-Exercise-12: Remove all occurrences of an element in a list
-Write a function "remove_all(my_list: list, element: int) -> list" 
-that takes a list of integers and an element, and returns a new list 
-with all occurrences of the element removed.
 
-Example:
-remove_all([1, 2, 3, 4, 5, 1, 2, 3], 3) -> [1, 2, 4, 5, 1, 2]
-"""
-
+# Exercise-12
 def remove_all(my_list: list, element: int) -> list:
-    pass
+    return [x for x in my_list if x != element]
 
-"""
-Exercise-13: Rotate a list to the left by k positions
-Write a function "rotate_left(my_list: list, k: int) -> list" that takes a 
-list of integers and an integer k, and returns a new list with the elements rotated k positions to the left.
 
-Example:
-rotate_left([1, 2, 3, 4, 5], 2) -> [3, 4, 5, 1, 2]
-"""
-
+# Exercise-13
 def rotate_left(my_list: list, k: int) -> list:
-    pass
+    if not my_list:
+        return my_list
+    k %= len(my_list)
+    return my_list[k:] + my_list[:k]
 
-"""
-Exercise-14: Rotate a list to the right by k positions
-Write a function "rotate_right(my_list: list, k: int) -> list" that 
-takes a list of integers and an integer k, and returns a new list 
-with the elements rotated k positions to the right.
 
-Example:
-rotate_right([1, 2, 3, 4, 5], 2) -> [4, 5, 1, 2, 3]
-"""
-
+# Exercise-14
 def rotate_right(my_list: list, k: int) -> list:
-    pass
+    if not my_list:
+        return my_list
+    k %= len(my_list)
+    return my_list[-k:] + my_list[:-k]
 
-"""
-Exercise-15: Find the intersection of two lists
-Write a function "find_intersection(list1: list, list2: list) -> list" that 
-takes two lists of integers and returns a new list with the elements that are present in both lists.
 
-Example:
-find_intersection([1, 2, 3, 4], [3, 4, 5, 6]) -> [3, 4]
-"""
-
+# Exercise-15
 def find_intersection(list1: list, list2: list) -> list:
-    pass
+    return list(set(list1) & set(list2))
 
-"""
-Exercise-16: Find the union of two lists
-Write a function "find_union(list1: list, list2: list) -> list" that takes 
-two lists of integers and returns a new list with the elements that are 
-present in either list (i.e., the union of the lists).
 
-Example:
-find_union([1, 2, 3, 4], [3, 4, 5, 6]) -> [1, 2, 3, 4, 5, 6]
-"""
-
+# Exercise-16
 def find_union(list1: list, list2: list) -> list:
-    pass
+    return list(set(list1) | set(list2))
 
-"""
-Exercise-17: Find the difference of two lists
-Write a function "find_difference(list1: list, list2: list) -> list" that takes 
-two lists of integers and returns a new list with the elements that are 
-present in the first list but not the second list.
-Assume that list does not contain duplicates.
 
-Example:
-find_difference([1, 2, 3, 4], [3, 4, 5, 6]) -> [1, 2]
-"""
-
+# Exercise-17
 def find_difference(list1: list, list2: list) -> list:
-    pass
+    return list(set(list1) - set(list2))
