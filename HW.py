@@ -2,7 +2,6 @@
 def count_unique_elements(my_list: list) -> int:
     return len(set(my_list))
 
-
 # Exercise-2
 def remove_duplicates(my_list: list) -> list:
     seen = set()
@@ -58,12 +57,15 @@ def count_frequency(my_list: list, element: int) -> int:
 
 
 # Exercise-11
-def find_mode(my_list: list) -> int:
+def find_mode(my_list: list):
+    if not my_list:
+        return None
+
     freq = {}
     for num in my_list:
         freq[num] = freq.get(num, 0) + 1
-    return max(freq, key=freq.get)
 
+    return max(freq, key=freq.get)
 
 # Exercise-12
 def remove_all(my_list: list, element: int) -> list:
